@@ -1,0 +1,43 @@
+.help-block {
+	color:#ff6666
+}
+
+.glow.ng-valid:focus {
+	border: 2px solid lightgreen;
+	border-radius: 2px;
+	box-shadow: 0 0 10px lightgreen;
+
+}
+.glow.ng-valid:not(:focus) {
+    border: 2px solid #9ecaed;
+	border-radius: 2px;
+	box-shadow: 0 0 10px #9ecaed;
+		
+}
+
+.glow.ng-dirty.ng-invalid-required {
+	border: 2px solid #ffb3b3;
+	border-radius: 2px;
+	box-shadow: 0 0 10px lightpink;
+}
+.glow.ng-dirty.ng-invalid-minlength {
+	border: 2px solid #FFFF82;
+	border-radius: 2px;
+	box-shadow: 0 0 10px #FFFF82;
+}
+.glow.ng-dirty.ng-invalid-maxlength {
+	border: 2px solid #ffb3b3;
+	border-radius: 2px;
+	box-shadow: 0 0 10px lightpink;
+}
+ 
+/*
+      .form-control.ng-valid {
+          background-color: lightgreen;
+      }
+      .form-control.ng-dirty.ng-invalid-required {
+          background-color: red;
+      }
+      .form-control.ng-dirty.ng-invalid-email {
+          background-color: yellow;
+      }*/

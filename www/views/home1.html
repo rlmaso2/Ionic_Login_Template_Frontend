@@ -1,0 +1,39 @@
+<ion-view title="{{orgName2}}">
+  	<ion-content class="has-header" scroll="false">
+		<div class="top">
+		<div>
+			<button class="button button-block button-light">
+  				My Task {{$scope.task}}
+			</button>
+    	</div>
+      	<ion-scroll class="half">
+			<div class="list card">
+				<ion-item ng-repeat="task in myTask | limitTo:quantity">
+					<span style ="float:left"><h3>{{task.title}}</h3></span>
+					<span style ="float:right"><h4>Due: {{task.date}}</h4></span>
+					<br>
+					<p>{{task.description}}</p>
+
+				</ion-item>
+			</div>
+		</ion-scroll>
+			</div>
+		<div class="bottom">
+    	<div>
+			<button class="button button-block button-light">
+  				Upcoming Events
+			</button>
+    	</div>
+		<ion-scroll class="half">
+			<div class="list card">
+				<ion-item ng-repeat="event in upcomingEvents | limitTo:quantity">
+					<span style ="float:left"><h3>{{event.title}}</h3></span>
+					<span style ="float:right"><h4>{{event.date}}</h4></span>
+					<br>
+					<p>{{event.description}}</p>
+				</ion-item>
+			</div>
+		</ion-scroll>
+		</div>
+  	</ion-content>
+</ion-view>

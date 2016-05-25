@@ -1,0 +1,75 @@
+<ion-view title="Signup">
+    <ion-content padding="true" scroll="false" class="has-header">
+        <form name="signupForm" novalidate>
+            <ion-list>
+                <div class="form-group">
+					<label class="item item-input">
+						<span class="input-label">First Name</span>
+						<input type="text" class="form-control glow" name="first" placeholder="First Name"  ng-model="user.first" required>
+						<span class="glyphicon form-control glow-feedback" aria-hidden="true"></span>
+                	</label>
+					<span ng-show="signupForm.first.$invalid && !signupForm.first.$pristine" class="help-block">Required.</span>
+				</div>
+                <div class="form-group">
+					<label class="item item-input">
+						<span class="input-label">Last Name</span>
+						<input type="text" class="form-control glow" name="last" placeholder="Last Name" ng-model="user.last" required>
+                	</label>
+					<span ng-show="signupForm.last.$invalid && !signupForm.last.$pristine" class="help-block">Required.</span>
+				</div>
+                <div class="form-group">
+					<label class="item item-input">
+						<span class="input-label">Username</span>
+						<input type="text" class="form-control glow" name="username" placeholder="Username" ng-model="user.username" ng-minlength="3" ng-maxlength="15" required>
+                	</label>
+					<div>
+						<span ng-show="signupForm.username.$error.minlength" class="help-block">Too short (3 char min.)</span>
+  						<span ng-show="signupForm.username.$error.maxlength" class="help-block">Too long (15 char max)</span>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="item item-input">
+						<span class="input-label">Email</span>
+						<input type="email" class="form-control glow" name="email" placeholder="email address" ng-model="user.email" required>
+                	</label>
+					<div>
+						<span ng-show="signupForm.email.$invalid && !signupForm.email.$pristine" class="help-block">Invalid email.</span>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="item item-input">
+						<span class="input-label">Confirm Email</span>
+						<input type="email" class="form-control glow" name="emailConfirm" placeholder=" Confirm email address" ng-model="user.emailConfirm" is-match='user.email' required>
+                	</label>
+					<div>
+						<span ng-show="signupForm.emailConfirm.$invalid && !signupForm.emailConfirm.$pristine && !signupForm.emailConfirm.$error.matched" class="help-block">Invalid email.</span>
+						<span ng-show="signupForm.emailConfirm.$error.matched && !signupForm.emailConfirm.$pristine" class="help-block">Email must match.</span>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="item item-input">
+                    	<span class="input-label">Phone</span>
+                    	<input type="tel" class="form-control glow" name="phone" placeholder="10-Digit Phone number" ng-model="user.phone" ng-minlength="10" ng-maxlength="10" required>
+					</label>
+					<div>
+						<span ng-show="signupForm.phone.$invalid && !signupForm.phone.$pristine" class="help-block">Invalid Phone #</span>
+					</div>
+				</div>
+                <div class="form-group">
+					<label ng-class="{'has-error': signupForm.password.$invalid}" class="item item-input">
+						<span class="input-label">Password</span>
+						<input type="{{inputType}}" class="form-control glow" name="password" ng-minlength="4" ng-model="user.password" required>
+                	</label>
+					<span ng-show="signupForm.password.$invalid && !signupForm.password.$pristine" class="help-block">Must be at least 4 characters!</span>
+					<div>
+						<input type="checkbox" id="checkbox" ng-model="passwordCheckbox" ng-click="hideShowPassword()" />
+  						<label for="checkbox" ng-if="passwordCheckbox">Hide password</label>
+  						<label for="checkbox" ng-if="!passwordCheckbox">Show password</label> 
+					</div>
+				</div>
+            </ion-list>
+            <button class="button button-stable button-block"
+                    ng-click="signup()">Sign up</button>
+        </form>
+    </ion-content>
+</ion-view>
